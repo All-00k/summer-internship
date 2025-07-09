@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import *
 
 from tkcalendar import DateEntry
 import json
@@ -8,15 +9,18 @@ import os
 
 TASK_FILE = "tasks.json"
 
-class ToDoApp:
+class ToDoList:
     def __init__(self, root):
         self.root = root
         self.root.title("To-Do List")
         self.root.geometry("800x800")
         self.root.config(bg="grey")
 
+        Label(root, text="Summer Internship Project", font=("Arial", 12, "bold")).pack(pady=5)
+        Label(root, text="Made by: Alok Singh Yadav", font=("Arial", 10)).pack(pady=2)
+        Label(root, text="Branch: CSE-DS | Year: 1st", font=("Arial", 10)).pack(pady=2)
 
-        self.title_label = tk.Label(root, text="My To-Do List", font=("Helvetica", 18, "bold"), bg="lightblue")
+        self.title_label = tk.Label(root, text="To-Do List", font=("Helvetica", 18, "bold"), bg="lightblue")
         self.title_label.pack(padx=10,pady=10)
 
 
@@ -109,5 +113,5 @@ class ToDoApp:
 # Main App
 if __name__ == "__main__":
     root = tk.Tk()
-    app = ToDoApp(root)
+    app = ToDoList(root)
     root.mainloop()
