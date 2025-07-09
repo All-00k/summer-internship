@@ -13,7 +13,7 @@ class ToDoList:
         self.root.geometry("800x800")
         self.root.config(bg="grey")
 
-        # ----- Scrollable canvas setup -----
+
         canvas = tk.Canvas(root, bg="grey", highlightthickness=0)
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
@@ -22,17 +22,17 @@ class ToDoList:
 
         canvas.configure(yscrollcommand=scrollbar.set)
 
-        # Frame inside canvas
+
         main_frame = tk.Frame(canvas, bg="grey")
         canvas.create_window((0, 0), window=main_frame, anchor="nw")
 
-        # Update scrollregion on frame resize
+        #
         main_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
-        # Enable mouse wheel scrolling
+
         canvas.bind_all("<MouseWheel>", lambda event: canvas.yview_scroll(int(-1*(event.delta/120)), "units"))
 
-        # ----- All UI elements inside main_frame -----
+        # All UI elements inside main_frame
         tk.Label(main_frame, text="Summer Internship Project", font=("Arial", 12, "bold"), bg="grey").pack(pady=5)
         tk.Label(main_frame, text="Made by: Alok Singh Yadav", font=("Arial", 10), bg="grey").pack(pady=2)
         tk.Label(main_frame, text="Branch: CSE-DS | Year: 1st", font=("Arial", 10), bg="grey").pack(pady=2)
